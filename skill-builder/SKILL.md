@@ -1,10 +1,10 @@
 ---
 name: skill-builder
 description: >
-  Lean skill builder for deciding, building, and auditing SKILL.md-based
-  workflows. Use when creating a new skill, drafting a minimal skill skeleton,
-  tightening an existing skill, or deciding whether the right answer is a plain
-  edit, an existing tool, or a subagent instead.
+  Builds lean SKILL.md-based skills: decides when a skill is justified, drafts
+  a minimal skill skeleton, and audits existing skills for bloat and drift. Use
+  when creating a new skill, tightening an existing one, or deciding whether
+  the right answer is a plain edit, an existing tool, or a subagent instead.
 ---
 
 # Skill Builder
