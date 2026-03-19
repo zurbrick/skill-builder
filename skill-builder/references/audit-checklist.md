@@ -1,6 +1,6 @@
 # Audit Checklist
 
-Use this to trim a skill or check for spec drift.
+Use this to trim a skill, check for spec drift, or tighten a newly built skeleton before handing it off.
 
 ## 1. Trigger quality
 
@@ -10,15 +10,32 @@ Use this to trim a skill or check for spec drift.
 - [ ] Is the scope honest, or is it promising too much?
 - [ ] Are there obvious overlaps with another existing skill?
 
-## 2. SKILL.md discipline
+## 2. Decide / build / audit fit
+
+- [ ] Is this actually a skill problem rather than a plain edit, tool use, or subagent task?
+- [ ] If building, was a skill explicitly justified before files were added?
+- [ ] If auditing, are we tightening the existing skill instead of reflexively replacing it?
+- [ ] Does the skill still say "do nothing special" when that is the right answer?
+
+## 3. SKILL.md discipline
 
 - [ ] Is `SKILL.md` easy to scan?
 - [ ] Does it contain the core workflow, not every edge case?
 - [ ] Are long examples/checklists moved into `references/`?
 - [ ] Are references named explicitly so they are discoverable?
 - [ ] Does the file avoid policy sprawl and manifesto language?
+- [ ] If this skill builds new skills, does it still stay narrow and concrete?
 
-## 3. Folder hygiene
+## 4. Build minimalism
+
+- [ ] Is the folder structure the smallest one that works?
+- [ ] Is `SKILL.md` present and sufficient on its own?
+- [ ] Are `references/` files limited to justified supporting detail?
+- [ ] Are there 1-3 reference files at most unless scope truly demands otherwise?
+- [ ] Is a `scripts/` stub included only if deterministic execution is clearly needed?
+- [ ] Are publish suggestions optional rather than embedded process requirements?
+
+## 5. Folder hygiene
 
 - [ ] Does every file directly support the skill’s job?
 - [ ] Are there unnecessary docs like README, CHANGELOG, or setup notes?
@@ -26,7 +43,7 @@ Use this to trim a skill or check for spec drift.
 - [ ] Is there any duplicated content between `SKILL.md` and `references/`?
 - [ ] Are scripts present only when deterministic execution is needed?
 
-## 4. Spec drift and staleness
+## 6. Spec drift and staleness
 
 - [ ] Do instructions still match the current tools/workflow?
 - [ ] Are referenced files and paths real?
@@ -34,7 +51,7 @@ Use this to trim a skill or check for spec drift.
 - [ ] Did the skill accrete side-missions beyond its original purpose?
 - [ ] Should some content be deleted instead of updated?
 
-## 5. Do-nothing check
+## 7. Do-nothing check
 
 Before expanding the skill, ask:
 - [ ] Would a plain edit solve this faster?
@@ -42,7 +59,7 @@ Before expanding the skill, ask:
 - [ ] Is this really a subagent problem, not a skill problem?
 - [ ] Is the proposed addition carrying its own weight?
 
-## 6. Tool Addition Gate (lightweight)
+## 8. Tool Addition Gate (lightweight)
 
 - [ ] Did we check existing tools first?
 - [ ] Would a lean skill solve the problem without inventing a new primitive?
@@ -58,6 +75,9 @@ Trim wording, improve description, move detail into `references/`, delete dead f
 
 ### Restructure lightly
 Keep the skill, but separate core workflow from supporting detail.
+
+### Build minimally
+Create or refine only the smallest justified skeleton.
 
 ### Retire / merge
 If the skill duplicates another one or no longer earns its context cost, remove or merge it.

@@ -2,6 +2,18 @@
 
 The skill folder should stay small. Every file should earn its keep.
 
+## Build in this order
+
+When a new skill is justified, add files in this order and stop as soon as the skill is usable:
+
+1. `SKILL.md`
+2. `references/` with 1-3 files only if they reduce context load or hold optional detail
+3. `scripts/` only if exact repeatable execution is clearly better than prose
+
+If step 1 is enough, stop.
+
+---
+
 ## `SKILL.md`
 
 Put these here:
@@ -10,6 +22,7 @@ Put these here:
 - default workflow
 - concise rules of thumb
 - explicit links to supporting files
+- the minimum build or audit instructions that should be visible whenever the skill triggers
 
 Keep in `SKILL.md` only what the agent should likely see whenever the skill triggers.
 
@@ -29,6 +42,7 @@ Put these here:
 - examples and patterns
 - schemas or domain notes
 - variant-specific instructions
+- build aids such as outline patterns or optional content maps
 
 Use `references/` when the material is useful context but not mandatory on every trigger.
 
@@ -37,11 +51,19 @@ Good fits:
 - naming/frontmatter patterns
 - folder placement rules
 - API or domain reference notes
+- example trigger phrasing
 
 Bad fits:
 - duplicate copies of SKILL.md guidance
 - placeholder docs with no concrete use
 - README/changelog/process notes for humans
+- references created only because "most skills have a references folder"
+
+### Count discipline
+
+Default target: **0-2 reference files**.
+Go to **3** only when each file has a distinct job.
+If you need more than that to explain the skill, the scope is probably too wide.
 
 ---
 
@@ -62,11 +84,15 @@ Do **not** add a script when:
 
 Rule of thumb: if the main value is judgment, keep it as guidance; if the main value is exact repeatable execution, consider a script.
 
+### Script stub rule
+
+If a script is justified during build, a stub is enough at first. Do not scaffold a mini-project around it.
+
 ---
 
 ## Minimal folder patterns
 
-### Small skill
+### Smallest valid skill
 
 ```text
 skill-name/
@@ -82,6 +108,16 @@ skill-name/
     └── checklist.md
 ```
 
+### Skill with two focused references
+
+```text
+skill-name/
+├── SKILL.md
+└── references/
+    ├── patterns.md
+    └── audit-checklist.md
+```
+
 ### Skill with deterministic helper
 
 ```text
@@ -94,3 +130,21 @@ skill-name/
 ```
 
 Start with the smallest pattern that works.
+
+---
+
+## Build output checklist
+
+When asked to build a skill skeleton, produce:
+- recommendation
+- minimal folder tree
+- draft frontmatter
+- `SKILL.md` outline or draft
+- justified references/scripts only if needed
+- optional publish metadata suggestions only if useful
+
+Do **not** produce:
+- repo scaffolding
+- dashboards or registries
+- packaging automation by default
+- filler docs created for appearance

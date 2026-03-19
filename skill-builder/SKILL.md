@@ -2,21 +2,29 @@
 name: skill-builder
 description: >
   Decide whether work should become a skill, stay a plain edit, use an existing
-  tool, or be delegated to a subagent. Use when creating, tightening, or auditing
-  a skill folder, especially to remove bloat, sharpen triggers, or decide what
-  belongs in SKILL.md versus references or scripts.
+  tool, or be delegated to a subagent. Use when creating, tightening, auditing,
+  or minimally building a skill folder, especially to remove bloat, sharpen
+  triggers, decide what belongs in SKILL.md versus references or scripts, or
+  draft a lean new skill skeleton.
 ---
 
 # Skill Builder
 
-Use this skill when the job is to **create, trim, or audit a skill itself**.
+Use this skill when the job is to **decide, build, or audit a skill itself**.
 
 This is a narrow builder, not a meta-agent and not a skill factory. Prefer the
 smallest useful answer.
 
+## Modes
+
+1. **Decide** — choose between plain edit, existing tool/skill, subagent, or a lean skill
+2. **Build** — draft a minimal skill skeleton only when a skill is justified
+3. **Audit** — tighten or lightly restructure an existing skill
+
 ## Use when
 
 - deciding whether a new skill is justified at all
+- drafting a lean new skill skeleton after deciding a skill is warranted
 - tightening an existing skill's trigger description or scope
 - moving detail out of `SKILL.md` into `references/`
 - auditing a skill for bloat, stale instructions, duplicate content, or spec drift
@@ -27,44 +35,106 @@ smallest useful answer.
 - an existing tool or installed skill already covers the work
 - the problem is implementation labor across many files rather than reusable guidance
 - you are inventing process theater to justify a skill
+- you are trying to generate a large framework of boilerplate, governance, or publishing machinery
 
 ## Default workflow
 
 1. **Run the decision tree first**
-   Read `references/decision-tree.md` and decide between plain edit, existing tool/skill,
-   subagent, or a lean skill.
+   Read `references/decision-tree.md` and choose between plain edit, existing
+   tool/skill, subagent, or a lean skill.
 
-2. **If a skill is justified, keep SKILL.md minimal**
+2. **If the answer is not "use a skill," stop there**
+   Prefer the honest recommendation over unnecessary skill creation.
+
+3. **If a skill is justified, build the smallest workable skeleton**
+   Read `references/supporting-files-guide.md` and produce only what is earned:
+   - skill folder
+   - `SKILL.md`
+   - `references/` with 1-3 files only if they reduce context load or hold optional detail
+   - `scripts/` stub only if deterministic execution is clearly warranted
+
+4. **Keep `SKILL.md` minimal**
    Include only:
    - clear frontmatter (`name`, `description`)
    - scope and non-scope
    - default workflow
    - reference pointers when optional detail is useful
 
-3. **Place detail intentionally**
-   Read:
-   - `references/frontmatter-patterns.md` for naming and description patterns
-   - `references/supporting-files-guide.md` for what belongs in `SKILL.md`, `references/`, and `scripts/`
-
-4. **Audit before expanding**
+5. **Audit before expanding**
    Use `references/audit-checklist.md` to remove bloat, stale claims, weak triggers,
    duplicate guidance, and files that do not earn their keep.
 
-5. **Apply the Tool Addition Gate lightly**
+6. **Apply the Tool Addition Gate lightly**
    If the proposed skill is compensating for a missing primitive, check this order:
    existing tools → lean skill → subagent/retrieval pattern → new tool only if clearly needed.
+
+## Build output
+
+When building, produce the smallest useful package in this order:
+
+1. **Recommendation**
+   State whether the answer is:
+   - **Use a skill**
+   - **Use the existing tool/skill**
+   - **Use a subagent**
+   - **Do nothing special; just edit it**
+
+2. **Folder tree**
+   Show a minimal tree such as:
+
+   ```text
+   skill-name/
+   ├── SKILL.md
+   └── references/
+       └── optional-file.md
+   ```
+
+3. **Draft frontmatter**
+   Provide only:
+   - `name`
+   - `description`
+
+4. **`SKILL.md` outline**
+   Include only the sections the skill actually needs.
+
+5. **Optional additions**
+   Suggest 1-3 `references/` files if justified.
+   Suggest a `scripts/` stub only if exact repeatable execution matters.
+   Optionally suggest publish metadata ideas (description/tags), but do not package or publish.
+
+### Minimal build example
+
+```text
+Recommendation: Use a skill
+
+skill-name/
+├── SKILL.md
+└── references/
+    └── checklist.md
+```
+
+```yaml
+name: skill-name
+description: Helps with X. Use when the user asks for Y or needs Z.
+```
+
+`SKILL.md` should then contain only:
+- scope / non-scope
+- default workflow
+- pointer to `references/checklist.md`
 
 ## Good outcomes
 
 - A plain edit stays a plain edit
 - An existing skill gets tightened instead of replaced
 - A new skill has a sharp trigger description and a short `SKILL.md`
+- A new skill skeleton is minimal and immediately editable
 - Supporting files exist only when they reduce context load or improve reliability
 
 ## Avoid
 
 - turning one-off work into a permanent skill
-- adding README, changelog, or setup clutter inside the skill unless publishing truly needs it
+- adding README, changelog, install notes, or setup clutter inside the skill unless publishing truly needs it
 - stuffing examples, schemas, and edge cases into `SKILL.md`
 - creating scripts for things that are better as instructions
 - inventing governance layers, registries, dashboards, or lifecycle systems
@@ -73,15 +143,9 @@ smallest useful answer.
 
 - `references/decision-tree.md` — choose skill vs tool vs subagent vs plain edit
 - `references/frontmatter-patterns.md` — lean frontmatter and description patterns
-- `references/supporting-files-guide.md` — what belongs in each folder
+- `references/supporting-files-guide.md` — what belongs in each folder when building
 - `references/audit-checklist.md` — fast bloat/spec-drift review
 
 ## Output style
 
-Lead with the recommendation:
-- **Use a skill**
-- **Use the existing tool/skill**
-- **Use a subagent**
-- **Do nothing special; just edit it**
-
-Then give the smallest set of file changes needed.
+Lead with the recommendation, then provide only the smallest justified build or edit plan.
