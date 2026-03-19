@@ -31,7 +31,4 @@ A packaged artifact is also available at:
 
 ## Publishing notes
 
-This export is ready for GitHub and ClawHub publication.
 
-One thing intentionally left open: **license choice**.
-No LICENSE file is included because that should be an explicit decision, not guessed.
