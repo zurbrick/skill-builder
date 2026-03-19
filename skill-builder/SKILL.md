@@ -1,11 +1,10 @@
 ---
 name: skill-builder
 description: >
-  Decide whether work should become a skill, stay a plain edit, use an existing
-  tool, or be delegated to a subagent. Use when creating, tightening, auditing,
-  or minimally building a skill folder, especially to remove bloat, sharpen
-  triggers, decide what belongs in SKILL.md versus references or scripts, or
-  draft a lean new skill skeleton.
+  Lean skill builder for deciding, building, and auditing SKILL.md-based
+  workflows. Use when creating a new skill, drafting a minimal skill skeleton,
+  tightening an existing skill, or deciding whether the right answer is a plain
+  edit, an existing tool, or a subagent instead.
 ---
 
 # Skill Builder
